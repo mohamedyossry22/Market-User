@@ -1,0 +1,22 @@
+<div class="box">
+    <div class="row" *ngIf="!loading">
+        <div class="col-md-5 col-sm-12">
+            <img src="{{data.image}}" alt="sas">
+        </div>
+        <div class="col-md-7 col-sm-12">
+            <div class="info">
+                <ul class="list-unstyled">
+                    <li><strong>Title : </strong>{{data.title}}</li>
+                    <li><strong>Category : </strong>{{data.category}}</li>
+                    <li><strong>Description : </strong>{{data.description}}</li>
+                    <li><strong>Rate : </strong>{{data.rating.rate}}</li>
+                    <li><strong>Count : </strong>{{data.rating.count}}</li>
+                    <li><strong>Price : </strong>{{data.price}} LE</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="text-center">
+        <app-spinner *ngIf="loading"></app-spinner>
+    </div>
+</div>

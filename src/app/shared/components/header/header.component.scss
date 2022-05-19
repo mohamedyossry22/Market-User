@@ -1,0 +1,27 @@
+
+nav {
+    background: linear-gradient(to right, #950b0b, #440606);
+    color: #FFF;
+    .content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 0;
+        ul {
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            width: 20%;
+            margin: 0;
+            li  {
+                cursor: pointer;
+                font-size: 22px;
+                color: #FFF;
+                text-decoration: none;
+              
+            }
+        }
+    }
+    
+
+}

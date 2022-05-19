@@ -1,0 +1,50 @@
+
+<div class="cartBox">
+    <h1 class="text-danger">Shopping Cart</h1>
+  <div class="headCart">
+    <p class="lead">You have <label class="text-danger ">{{cartProducts.length}}</label> item in your cart</p>
+    <span class="text-danger card-header" (click)="clearCart()">Clear Shopping Cart</span>
+  </div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Name</th>
+                <th>Price</th>
+                <th style="width: 25%;">Quantity</th>
+                <th>Totle</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of cartProducts; let index = index" >
+                <td><img src="{{item.item.image}}" alt=""></td>
+                <td>{{item.item.title}}</td>
+                <td>{{item.item.price}} L.E</td>
+                <td>
+                    <div class="quantity">
+                        <button class="btn btn-dark" (click)="addAmount(index)" >+</button>
+                        <input class="form-control"  type="number" (change)="detectChange()" [(ngModel)]="item.quantity" min="1">
+                        <button class="btn btn-dark" (click)="minsAmount(index)" >-</button>
+                    </div>
+                </td>
+                <td>{{item.item.price * item.quantity}} L.E</td>
+                <td>
+                    <button class="btn btn-danger" (click)="deleteProduct(index)" >Delete</button>
+                </td>
+            </tr>
+        </tbody> 
+        <tfoot>
+            <tr>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th>Total : {{total}} LE</th>
+                <th><button class="btn btn-success" (click)="addCart()">Order Now</button></th>
+            </tr>
+        </tfoot>
+    </table>
+    
+</div>
+<div class="alert alert-success" role="alert" *ngIf="success"><strong>Well done!</strong> Your Order is Successfully Send</div>
